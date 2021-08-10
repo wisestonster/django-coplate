@@ -93,24 +93,15 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+        "NAME": "coplate.validators.CustomPasswordValidator",
+    }
 ]
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -146,6 +137,12 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SIGNUP_FORM_CLASS = "coplate.forms.SignupForm"
 ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True
+ACCOUNT_EMAIL_VERIFICATION = "optional"  # default 값
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confirmation_done"
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confirmation_done"
+PASSWORD_RESET_TIMEOUT_DAYS = 3 # 디폴트는 3
 # SESSION_COOKIE_AGE = 3600 # 기본은 2주
 
 # Email settings
